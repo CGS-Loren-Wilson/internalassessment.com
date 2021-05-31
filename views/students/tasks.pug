@@ -1,0 +1,18 @@
+extends ../layout.pug
+
+block content
+ h1 #{student.name}'s Completed Tasks
+ table(class='table table-borderless table-hover')
+   thead
+     th Title
+     th Description
+     th Date Completed
+     th Score
+   for completed in tasksCompleted
+     tr(onclick=`viewCompleted('${completed.id}')`)
+       td #{completed.task.title}
+       td #{completed.task.description}
+       td #{completed.dateSubmitted}
+       td #{completed.score}
+       - console.log(completed.score)
+ 

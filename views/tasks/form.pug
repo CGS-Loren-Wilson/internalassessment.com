@@ -1,0 +1,14 @@
+extends ../layout.pug
+ 
+block content
+  h1 Add Task
+  form(action="/tasks/create" method="post")
+    div(class="mb-3")
+      label(for="title") Title
+      input(type="text" class="form-control" name="title" value="" placeholder="title of task" required)
+
+    div(class="mb-3")
+      label(for="description") Description
+      textarea(type="text" class="form-control" name="description" value="" placeholder="brief decription of task, can include dot points" required)
+
+    input(class="btn btn-outline-dark" type="submit" value="Submit")

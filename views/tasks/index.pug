@@ -1,0 +1,22 @@
+extends ../layout.pug
+ 
+block content
+ h1 All Tasks
+ p
+   a(href='/tasks/form') Add Task
+ table(class='table table-borderless table-hover')
+   thead
+     th Title
+     th Description
+     th 
+     th
+   for task in tasks
+     tr
+       td(onclick=`view('${task.id}')`) #{task.title}
+       td(onclick=`view('${task.id}')`) #{task.description}
+       td
+        button(class='btn btn-outline-dark' onclick=`edit('${task.id}')`) Edit
+       td
+        button(class='btn btn-outline-dark' onclick=`confirmDelete('${task.id}')`) Delete
+ 
+   script(src='/button.js')

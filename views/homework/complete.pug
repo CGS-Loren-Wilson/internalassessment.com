@@ -1,0 +1,39 @@
+extends ../layout.pug
+ 
+block content
+    h1 #{task.title}
+    div(class="data-form")
+    form(action=`/homework/completed/${student._id}/${task._id}` method="post")
+        div(class="mb-3")
+            label(for="comments") Comments
+            textarea(type="text" class="form-control" name="comments" value=task.comments placeholder="brief comment on quality of task including dot points on improvements and what was done well" required)
+        
+        div(class="mb-3")
+            label(for="quality") Quality
+            input(type="number" class="form-control" name="quality" value='' placeholder="0-100 quality rank of task" required min="1" max="100")
+        
+        div(class="mb-3")                
+            input.form-check-input(type='checkbox', name='draft')
+            label(for="draft") Submitted a draft/shown progress
+       
+        div(class="mb-3")
+            input.form-checkbox-input(type='checkbox', name='forum')
+            label(for="forum") Used Edstem forum
+        
+        div(class="mb-3")
+            input.form-checkbox-input(type='checkbox', name='improvement')
+            label(for="improvement") Shown improvement
+       
+        div(class="mb-3")
+            input.form-checkbox-input(type='checkbox', name='extension')
+            label(for="extension") Tried all extension
+        
+        div(class="mb-3")
+            input.form-checkbox-input(type='checkbox', name='works')
+            label(for="works") It works!! 
+        
+        div(class="mb-3")
+            input.form-checkbox-input(type='checkbox', name='early')
+            label(for="early") Submitted before due date
+         
+        input(class="btn btn-outline-dark" type="submit" value="Submit")

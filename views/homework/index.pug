@@ -1,0 +1,29 @@
+extends ../layout.pug
+
+block content
+  h1 Homework
+  table(class='table table-borderless table-hover')
+    thead
+      th Student
+      for task in tasks
+        th #{task.title}
+      
+    for student in students
+      tr
+        td #{student.name}
+        for task in tasks
+          - var found = false
+          for completed in student.tasksCompleted
+            - if (completed.task._id.toString() == task._id.toString()) {
+              - found = true
+              - }
+          if found
+            td
+              h6 Complete
+              img(src='checked.png' alt='checked box' width='50px')
+          else
+            td 
+                h6 Incomplete 
+                - var path = '/homework/complete/' + student._id + "/" + task._id
+                a(href=path)
+                    img(src='empty.png' alt='empty box' width='50px')

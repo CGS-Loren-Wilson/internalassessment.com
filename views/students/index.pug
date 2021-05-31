@@ -1,0 +1,28 @@
+extends ../layout.pug
+
+block content
+ h1 All Students
+ p
+   a(href='/students/form') Add Student
+ table(class='table table-borderless table-hover')
+   thead
+     th ID
+     th Name
+     th Score
+     th
+     th 
+     th 
+   for student in students
+     tr
+       td(onclick=`viewStudent('${student.id}')`) #{student.studentid}
+       td(onclick=`viewStudent('${student.id}')`) #{student.name}
+       td(onclick=`viewStudent('${student.id}')`) #{student.score}
+       td
+         button(class='btn btn-outline-dark' onclick=`tasks('${student.id}')`) Completed Tasks
+       td
+         button(class='btn btn-outline-dark' onclick=`editStudent('${student.id}')`) Edit
+       td
+         button(class='btn btn-outline-dark' onclick=`confirmDeleteStudent('${student.id}')`) Delete
+
+     script(src='/button.js')
+ 

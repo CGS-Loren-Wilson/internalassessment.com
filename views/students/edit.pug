@@ -1,0 +1,22 @@
+extends ../layout.pug
+
+block content
+ h1 Edit Student
+ div(class="data-form")
+   form(action=`/students/update/${student.id}` method="post")
+    div(class="mb-3")
+      label(for="studentid" class="form-label") Student ID
+      input(type="number" class="form-control" name="studentid" value=student.studentid)
+
+    div(class="mb-3")
+      label(for="name" class="form-label") Name
+      input(type="text" class="form-control" name="name" value=student.name)
+
+    div(class="mb-3")
+      label(for="email" class="form-label") Email
+      input(type="text" class="form-control" name="email" value=student.email)
+  
+    input(class="btn btn-outline-dark" type="submit" value="Submit")
+  
+
+

@@ -1,0 +1,18 @@
+extends ../layout.pug
+
+block content
+    h1 Edit Task
+    div(class="data-form")
+      form(action=`/tasks/update/${task.id}` method="post")
+        div(class="mb-3")
+         label(for="title" class="form-label") Title 
+         input(type="text" class="form-control" name="title" value=task.title)
+
+        div(class="mb-3")
+         label(for="description" class="form-label") Description 
+         input(type="text" class="form-control" name="description" value=task.description)
+
+        input(class="btn btn-outline-dark" type="submit" value="Submit")
+
+
+    

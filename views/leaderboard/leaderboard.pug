@@ -1,0 +1,23 @@
+extends ../layout.pug
+
+block content
+ h1 Leaderboard 
+ table(class='table table-borderless table-hover')
+    thead
+        th #
+        th Student 
+        th Score 
+
+    - for(var i = 0; i < students.length; i++) {
+        tr
+            td= i+1 
+            td= students[i].name
+            td= students[i].score
+    - }
+    
+            
+            
+
+
+
+
